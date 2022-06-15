@@ -1,11 +1,11 @@
 const fetchData = async (userName) => {
-  const TOKEN = "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";
+  
   try {
     const mainUrl = `https://api.github.com/users/${userName}/repos`;
     const res = await fetch(mainUrl, {
       method: "GET",
       headers: {
-        Authorization: `token ${TOKEN}`,
+        Authorization: `token ${process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN}`,
       },
     });
 

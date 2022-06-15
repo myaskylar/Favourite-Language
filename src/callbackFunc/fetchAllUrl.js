@@ -1,10 +1,10 @@
 const fetchAllUrl = async (urls) => {
-  const TOKEN = "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";
+  
   const requests = urls.map((url) =>
     fetch(url, {
       method: "GET",
       headers: {
-        Authorization: `token ${TOKEN}`,
+        Authorization: `token ${process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN}`,
       },
     })
   );
