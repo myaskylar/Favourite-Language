@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# MVS-Test
+ 
+This app will retrieve a Github user’s favourite programming language.
+When you search someone's Github username, this app will present the user's most frequently used language based on how many times they used it in their repository.
+: 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# **Approach**
+```
+Tools:
+(front-end)
+React
+Bootstrap
+```
+## **Tasks:**
+```
+- Create authorised token for Github API.
+- Create a .env file to store the token code.
+- Create search bar and button component in React.
+- Fetch data from API using asynchronous  functions.
+- Create a callback function using array methods (map.(), reduce.(),filter.(),sort.()) to filter through fetched data.
+- Use useState to store data.
+- Use the reduce.() and sort.() method to sort the highest used language.
+```
 
-In the project directory, you can run:
+# **Challenges**
+In some repositories, the language field is empty which returns NULL.This is because there is no code related content recognized in the repository. Github automatically updates the language field after every push event. For a language to be recognized it should be listed in the Linguist library.
+But most repositories have a combination of languages  which are stored in  different URLs.If it's got some entries, we should see the most-used one instead.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# **Solution:**
+```
+- Using Promise.all with Async/Await to get data from multiple endpoints
+- We create a variable  for holding our data.
+- Using the keyword await’. Await - ‘complete this first.’
+- Promise.all method is used to tell the function to go and do all of the urls from the URLs array. One at a time.
+- Using the .map() array method to iterate over an array.
+- Then pass each url into the fetch() => fetch(url);
+- Use .then for chaining to convert response from ‘fetched’ to JSON (.then(res => res.json()).
+ ```
+## **Extra** (This app is not connected to the server)
+*(back-end)*
+```
+- Use node.js and express to fetch api from Github API.
+- Create server in back end 
+- Create demo api in json file for testing 
+- Install dependency on package.json (express, cors(for connecting frontend to backend), nodemon, dotenv(production)).
+- Create api.js file 
+- Use express.Router to connect the database.
+- Use path to combine the url (//https://api.github.com/users/${userName}/repos))
+- Create host name (api.github.com)
+- Header (authentication token)
+- Use HTTPS request to connect api responses. 
+- Use express and cors middleware 
+- Create GET endpoint
+- Run the server in localhost.
+ ```
